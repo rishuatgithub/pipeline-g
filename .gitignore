@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+credentials/*
+infrastructure/automation/.terraform/*
+*.tfstate
+*.backup
+data/.DS_Store
+.DS_Store
