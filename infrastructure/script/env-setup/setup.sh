@@ -1,39 +1,23 @@
 #!/bin/bash
 
 PROJECTENV="pipelineg"
-ENV=$1
 HOME_DIR=`pwd`
+ENV=$HOME_DIR/env
 
-if [ "$#" -ne 1 ];
-then
-    echo "Argument Not Found. Expected 1 Found $#."
-    echo "Usage: sh env-setup.sh ARG1"
-    echo "Accepted Values: LOCAL, SERVER"
-    exit 1
-fi
+echo "Installing Python Environment in Local Mode"
+echo "Project Env. Name: $PROJECTENV"
 
-if [[ $ENV -eq "LOCAL" ]];
-then
-    echo "Installing Python Environment in Local Mode"
-    echo "Project Env. Name: $PROJECTENV"
-    python3 -m venv ~/pyenv/$PROJECTENV/env
-    source ~/pyenv/$PROJECTENV/env/bin/activate
-    pip install pip --upgrade
-    
-else
-    echo "Installing Python Environment in Server Mode"
-    python3 -m venv ~/$PROJECTENV/env
-    source ~/$PROJECTENV/env/bin/activate
-    pip install pip --upgrade
+echo "1. Creating project env."
+python3 -m venv $ENV/$PROJECTENV/env
 
-    echo "source ~/$PROJECTENV/env/bin/activate" >> ~/.bashrc
-    source ~/.bashrc
-fi
+echo "2. Pip upgrade"
+source $ENV/$PROJECTENV/env/bin/activate
+pip install pip --upgrade
 
-
-source ~/pyenv/$PROJECTENV/env/bin/activate
-
-echo "Installing Dependencies"
+echo "3. Installing Dependencies"
 pip3 install -r $HOME_DIR/requirements.txt
+
+echo "4. Activating the env."
+source $ENV/$PROJECTENV/env/bin/activate
 
 exit 0

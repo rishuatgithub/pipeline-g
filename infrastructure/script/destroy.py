@@ -15,10 +15,12 @@ def trigger():
     os.chdir(automation_dir)
 
     print("Triggering the infrastructure plan")
-    execute_command("terraform destroy")
+    var_filename = "config/config-{}.tfvars".format(ENV)
+    execute_command("terraform destroy -var-file={}".format(var_filename))
 
 
 if __name__ == "__main__":
     print("Destroying the infrastructure deployment")
+    ENV="eu"
     trigger()
 

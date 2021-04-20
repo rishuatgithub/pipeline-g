@@ -18,11 +18,12 @@ def trigger():
     execute_command("terraform init")
 
     print("Execute the plan")
-    execute_command("terraform apply --auto-approve")
+    var_filename = "config/config-{}.tfvars".format(ENV)
+    execute_command("terraform apply -var-file={} --auto-approve".format(var_filename))
 
 
 if __name__ == "__main__":
     print("Starting the infrastructure deployment")
-
+    ENV="eu"
     trigger()
 
