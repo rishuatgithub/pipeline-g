@@ -133,3 +133,4 @@ infrastructure/automation/.terraform/*
 *.backup
 data/.DS_Store
 .DS_Store
+app/generated/*

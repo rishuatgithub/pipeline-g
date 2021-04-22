@@ -29,7 +29,7 @@ def list_bucket():
 
 
 def upload(): 
-    search_bucket = "-{}-data-bucket".format(ENV)
+    search_bucket = "-{}-landing-bucket".format(ENV)
     buckets = [b for b in list_bucket() if search_bucket in b]
 
     if len(buckets)<=0:
