@@ -1,1 +1,2 @@
 ## Requirements for trigger_function_file_metadata goes here.
+google-cloud-pubsub

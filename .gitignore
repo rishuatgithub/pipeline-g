@@ -134,3 +134,4 @@ infrastructure/automation/.terraform/*
 data/.DS_Store
 .DS_Store
 app/generated/*
+*.info

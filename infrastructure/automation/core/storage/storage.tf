@@ -9,3 +9,8 @@ resource "google_storage_bucket" "storage" {
   location = var.bucket_region
   force_destroy = var.bucket_force_destroy
 }
+
+output "bucket_name" {
+  description = "cloud storage bucket name"
+  value = google_storage_bucket.storage.name
+}
