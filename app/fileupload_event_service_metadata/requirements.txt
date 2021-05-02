@@ -1,2 +1,3 @@
 ## Requirements for trigger_function_file_metadata goes here.
-google-cloud-pubsub
+#google-cloud-pubsub
+google-cloud-firestore
